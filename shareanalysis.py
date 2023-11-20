@@ -1527,7 +1527,7 @@ st.header(':blue[下面是where to play cross table]')
 # @st.cache_data
 def table(df1,sub_channel,period23,period22,price23,price22):
     if sub_channel=='Total':
-        st.write(sub_channel)
+        # st.write(sub_channel)
         pass
     elif sub_channel=='offline' or sub_channel=='online'or sub_channel=='Online'or sub_channel=='Offline':
         df1=df1[df1['channel']==sub_channel]
@@ -1538,7 +1538,7 @@ def table(df1,sub_channel,period23,period22,price23,price22):
     df2=df1.groupby('Brand').agg({period22: 'sum', period23: 'sum'}) 
     dfshr=df2.apply(lambda x:x/(x.sum()),axis=0)
     dfshr.reset_index(inplace=True)
-    st.write(dfshr)
+    # st.write(dfshr)
     dfshr.loc['Total']=dfshr.sum(axis=0)
     dfshr.loc['Total','Brand']='Total'
     dfshr.fillna(0,inplace=True)
