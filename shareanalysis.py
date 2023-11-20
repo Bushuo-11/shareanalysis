@@ -1618,7 +1618,7 @@ def table(df1,sub_channel,period23,period22,price23,price22):
     return output
 
 var=globals()
-st.write(df1,df1[channel][0])
+st.write(df1)
 
 sub_channels=channel  #['NKA'] #,'RKA'
 
