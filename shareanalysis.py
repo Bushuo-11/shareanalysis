@@ -1528,7 +1528,7 @@ st.header(':blue[下面是where to play cross table]')
 def table(df1,sub_channel,period23,period22,price23,price22):
     if sub_channel=='Total':
         temp=df1
-    elif sub_channel=='offline' or sub_channel=='online':
+    elif sub_channel=='offline' or sub_channel=='online'or sub_channel=='Online'or sub_channel=='Offline':
         df1=df1[df1['channel']==sub_channel]
     else:
         df1=df1[df1['sub_channel']==sub_channel]
