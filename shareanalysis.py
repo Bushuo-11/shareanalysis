@@ -1533,7 +1533,8 @@ def table(df1,sub_channel,period23,period22,price23,price22):
         df1=df1[df1['channel']==sub_channel]
     else:
         df1=df1[df1['sub_channel']==sub_channel]
-    
+        
+    df1['Brand'].fillna('na',inplace=True)
     df2=df1.groupby('Brand').agg({period22: 'sum', period23: 'sum'}) 
     dfshr=df2.apply(lambda x:x/(x.sum()),axis=0)
     dfshr.reset_index(inplace=True)
@@ -1620,8 +1621,6 @@ def table(df1,sub_channel,period23,period22,price23,price22):
     return output
 
 var=globals()
-st.write(df1,channel,period23,period22,price23,price22)
-
 sub_channels=channel  #['NKA'] #,'RKA'
 
 for sub_channel in sub_channels:
