@@ -1534,7 +1534,7 @@ def table(df1,sub_channel,period23,period22,price23,price22):
     else:
         df1=df1[df1['sub_channel']==sub_channel]
         
-    df1['Brand']=df1['Brand'].apply(lambda x:'na' if len(x)==0 else x)
+    df1['Brand']=df1['Brand'].apply(lambda x: 'zzz' if x==0 else x)
     df2=df1.groupby('Brand').agg({period22: 'sum', period23: 'sum'}) 
     dfshr=df2.apply(lambda x:x/(x.sum()),axis=0)
     dfshr.reset_index(inplace=True)
